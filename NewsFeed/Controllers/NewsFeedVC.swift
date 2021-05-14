@@ -15,7 +15,7 @@ class NewsFeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "News Feed"
-        
+                
         getNewsFeeds()
         
         

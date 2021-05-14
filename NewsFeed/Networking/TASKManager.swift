@@ -14,10 +14,15 @@ class TASKManager {
         ,responseType: ResponseType.Type
         ,failure: FailureType.Type
         ,completion: @escaping (Result<ResponseType, Error>) -> Void) {
-
+        
+        GFunctions.shared.addLoader()
+        
         let request = URLRequest(url: url)
         
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            
+            GFunctions.shared.removeLoader()
+
             if let error = error {
                 completion(.failure(error))
             }

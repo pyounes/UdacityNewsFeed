@@ -8,21 +8,22 @@
 import Foundation
 
 struct Feeds: Codable {
-    let status: String
-    let totalResults: Int
-    let articles: [Feed]
+    let status: String!
+    let totalResults: Int!
+    let articles: [Feed]!
 }
 
 struct Feed: Codable {
-    let title           : String
-    let description     : String
-    let url             : String
-    let urlToImage      : String
-    let publishedAt     : String
-    let source: Source
+    let source          : Source!
+    let title           : String!
+    let description     : String!
+    let url             : String!
+    let urlToImage      : String!
+    let publishedAt     : String!
 }
 
 
 struct Source: Codable {
-    
+    let id      : String!
+    let name    : String!
 }
