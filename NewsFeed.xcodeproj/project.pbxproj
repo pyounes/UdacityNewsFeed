@@ -74,6 +74,7 @@
 		623305A4264CF67C00705011 /* NewsFeed */ = {
 			isa = PBXGroup;
 			children = (
+				62330616264E805E00705011 /* Thirdparty */,
 				6233060C264E6F7E00705011 /* Global */,
 				62330607264E65AA00705011 /* Extensions */,
 				62330600264D925200705011 /* Resources */,
@@ -164,6 +165,13 @@
 				62330610264E70B500705011 /* GConstants.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		62330616264E805E00705011 /* Thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Thirdparty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
