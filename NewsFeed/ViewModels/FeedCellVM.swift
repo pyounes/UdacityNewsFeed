@@ -8,14 +8,16 @@
 import UIKit
 
 class FeedCellVM {
-    let title: String
-    let subtitle: String
-    let imageURL: URL?
-    var imageData: Data? = nil
+    let title       : String
+    let subtitle    : String
+    let url         : URL!
+    let imageURL    : URL?
+    var imageData   : Data? = nil
     
-    init(title: String, subtitle: String, imageURL: URL?) {
-        self.title = title
-        self.subtitle = subtitle
-        self.imageURL = imageURL
+    init(title: String, subtitle: String, url: URL!, imageURL: URL?) {
+        self.title      = title
+        self.subtitle   = subtitle
+        self.url        = url
+        self.imageURL   = imageURL
     }
 }

@@ -33,7 +33,7 @@ class NewsFeedVC: UIViewController {
             switch result {
             case .success(let articles):
                 self?.vm = articles.compactMap({
-                    FeedCellVM(title: $0.title, subtitle: "", imageURL: URL(string: $0.urlToImage ?? ""))
+                    FeedCellVM(title: $0.title, subtitle: "", url: URL(string: $0.url ?? ""), imageURL: URL(string: $0.urlToImage ?? ""))
                 })
                 self?.reloadTableView()
                 break
@@ -71,7 +71,7 @@ extension NewsFeedVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        self.pushToArticleDetailVC(url: vm[indexPath.row].url!)
     }
     
 }
