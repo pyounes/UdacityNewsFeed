@@ -27,6 +27,7 @@
 		62330627264E9B3E00705011 /* FeedCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62330626264E9B3E00705011 /* FeedCellVM.swift */; };
 		626EA64526500B450025C731 /* ArticleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EA64426500B450025C731 /* ArticleDetailVC.swift */; };
 		626EA649265013120025C731 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EA648265013120025C731 /* DataController.swift */; };
+		626EA64D2650141B0025C731 /* NewsFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 626EA64B2650141B0025C731 /* NewsFeed.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		62330626264E9B3E00705011 /* FeedCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellVM.swift; sourceTree = "<group>"; };
 		626EA64426500B450025C731 /* ArticleDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailVC.swift; sourceTree = "<group>"; };
 		626EA648265013120025C731 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		626EA64C2650141B0025C731 /* NewsFeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsFeed.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				62330602264DA13400705011 /* Article.swift */,
 				626EA648265013120025C731 /* DataController.swift */,
+				626EA64B2650141B0025C731 /* NewsFeed.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				626EA64526500B450025C731 /* ArticleDetailVC.swift in Sources */,
 				623305FD264D922A00705011 /* TASKManager.swift in Sources */,
 				6233060E264E6F9300705011 /* GFunctions.swift in Sources */,
+				626EA64D2650141B0025C731 /* NewsFeed.xcdatamodeld in Sources */,
 				623305EA264D90B100705011 /* NewsFeedVC.swift in Sources */,
 				626EA649265013120025C731 /* DataController.swift in Sources */,
 				62330614264E742100705011 /* UIApplication+Extension.swift in Sources */,
@@ -493,6 +497,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		626EA64B2650141B0025C731 /* NewsFeed.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				626EA64C2650141B0025C731 /* NewsFeed.xcdatamodel */,
+			);
+			currentVersion = 626EA64C2650141B0025C731 /* NewsFeed.xcdatamodel */;
+			path = NewsFeed.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6233059A264CF67C00705011 /* Project object */;
 }
