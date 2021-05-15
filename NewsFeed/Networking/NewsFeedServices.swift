@@ -17,8 +17,8 @@ class NewsFeedServices {
      - Comment           :  function that fetchs NewFeed for a specific location
      - Object                :  Feeds
      */
-    func getNews(by country: Country, completion: @escaping (Result<[Article], Error>) -> Void) {
-        TASKManager.taskHandler(url: EndPoints.getNewsByLocation(country).url
+    func getTopHeadlinesBy(country: Country, completion: @escaping (Result<[Article], Error>) -> Void) {
+        TASKManager.taskHandler(url: EndPoints.getTopHeadlinesByCountry(country).url
                                 ,responseType: Feeds.self
                                 ,failure: Feeds.self) { result in
 

@@ -9,15 +9,18 @@ import Foundation
 
 
 enum EndPoints {
-    static let baseURL = "https://newsapi.org/v2"
-    static let apiKey = "36ad6164e76c4156bf1de0d5db8ccd0b"
+    private static let baseURL = "https://newsapi.org/v2"
+    private static let apiKey = "36ad6164e76c4156bf1de0d5db8ccd0b"
     
-    case getNewsByLocation(Country)
+    case getTopHeadlinesByCountry(Country)
+    case getTopHeadlinesByQuery(String)
     
     var string: String {
         switch self {
-        case .getNewsByLocation(let country):
+        case .getTopHeadlinesByCountry(let country):
             return "/top-headlines?country=\(country.rawValue)&apiKey=\(EndPoints.apiKey)"
+        case .getTopHeadlinesByQuery(let query):
+            return "/top-headlines?q=\(query)&apiKey=\(EndPoints.apiKey)"
         }
     }
     

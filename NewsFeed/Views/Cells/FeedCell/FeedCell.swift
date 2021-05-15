@@ -21,8 +21,12 @@ class FeedCell: UITableViewCell {
         lblNewsTitle.text = vm.title
         if let data = vm.imageData {
             self.imageViewNews.image = UIImage(data: data)
-        } else {
-            
+        } else if let url = vm.imageURL {
+            NewsFeedServices.shared.downloadImage(url: url) { [weak self] (data, error) in
+                guard let data = data, error == nil else { return }
+                vm.imageData = data
+                self?.imageViewNews.image = UIImage(data: data)
+            }
         }
     }
     

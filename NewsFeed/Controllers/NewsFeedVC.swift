@@ -21,19 +21,20 @@ class NewsFeedVC: UIViewController {
         
         feedsTableView.register(UINib(nibName: FeedCell.identifier, bundle: nil), forCellReuseIdentifier: FeedCell.identifier)
                 
-        getNewsFeeds()
+        getTopHeadlines()
         
     }
     
-    // Custom Methods
-    private func getNewsFeeds() {
-        NewsFeedServices.shared.getNews(by: .usa) { [weak self] (result) in
+    // MARK: - Custom Methods
+    
+    /// Fetching TopHeadlines
+    private func getTopHeadlines() {
+        NewsFeedServices.shared.getTopHeadlinesBy(country: .usa) { [weak self] (result) in
             switch result {
             case .success(let articles):
                 self?.vm = articles.compactMap({
                     FeedCellVM(title: $0.title, subtitle: "", imageURL: URL(string: $0.urlToImage ?? ""))
                 })
-                
                 self?.reloadTableView()
                 break
             case .failure(let error):
@@ -43,6 +44,7 @@ class NewsFeedVC: UIViewController {
         }
     }
     
+    /// Reload TableView When data is fetched
     private func reloadTableView() {
         DispatchQueue.main.async {
             self.feedsTableView.reloadData()
@@ -69,7 +71,7 @@ extension NewsFeedVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

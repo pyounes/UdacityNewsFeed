@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="90" id="KGk-i7-Jjw" customClass="FeedCell" customModule="NewsFeed" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="90" id="KGk-i7-Jjw" customClass="FeedCell" customModule="NewsFeed" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                <rect key="frame" x="0.0" y="0.0" width="293" height="85"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dH7-dJ-Nvs">
@@ -23,9 +23,9 @@
                             <constraint firstAttribute="height" constant="60" id="T0s-SH-YRd"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bF6-W2-avB">
-                        <rect key="frame" x="86" y="30" width="218" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="bF6-W2-avB">
+                        <rect key="frame" x="86" y="10" width="191" height="60"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -33,9 +33,11 @@
                 <constraints>
                     <constraint firstItem="dH7-dJ-Nvs" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4Yw-qV-Rl5"/>
                     <constraint firstItem="dH7-dJ-Nvs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="9pK-nt-9LA"/>
+                    <constraint firstAttribute="bottom" secondItem="bF6-W2-avB" secondAttribute="bottom" constant="10" id="BWf-b4-L0X"/>
                     <constraint firstAttribute="bottom" secondItem="dH7-dJ-Nvs" secondAttribute="bottom" constant="10" id="F9B-Pb-hOm"/>
                     <constraint firstItem="bF6-W2-avB" firstAttribute="leading" secondItem="dH7-dJ-Nvs" secondAttribute="trailing" constant="16" id="Hfp-tb-mZf"/>
                     <constraint firstItem="bF6-W2-avB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Pfo-WA-w8z"/>
+                    <constraint firstItem="bF6-W2-avB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Q5v-68-ksr"/>
                     <constraint firstAttribute="trailing" secondItem="bF6-W2-avB" secondAttribute="trailing" constant="16" id="RLV-2c-3gR"/>
                     <constraint firstItem="dH7-dJ-Nvs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="WDt-eb-mRp"/>
                     <constraint firstItem="bF6-W2-avB" firstAttribute="centerY" secondItem="dH7-dJ-Nvs" secondAttribute="centerY" id="o4L-YM-aUP"/>
