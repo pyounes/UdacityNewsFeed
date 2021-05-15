@@ -10,7 +10,7 @@ import Foundation
 struct Feeds: Codable {
     let status: String!
     let totalResults: Int!
-    let articles: [Article]!
+    let articles: [Article]?
 }
 
 struct Article: Codable {

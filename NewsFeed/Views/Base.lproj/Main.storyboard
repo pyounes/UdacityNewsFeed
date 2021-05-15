@@ -86,10 +86,52 @@
                     <view key="view" contentMode="scaleToFill" id="Tlb-17-OsM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K9g-sZ-TDy">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="mnQ-ih-Glg" imageView="b4Y-kd-HpS" style="IBUITableViewCellStyleDefault" id="c1u-dQ-1NC">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c1u-dQ-1NC" id="zcK-3i-OBU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mnQ-ih-Glg">
+                                                    <rect key="frame" x="59" y="0.0" width="335" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="cell" insetsLayoutMarginsFromSafeArea="NO" image="pencil" catalog="system" id="b4Y-kd-HpS">
+                                                    <rect key="frame" x="23.25" y="14" width="17.5" height="15.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="dP6-wm-CrT" id="wuq-9b-jTr"/>
+                                    <outlet property="delegate" destination="dP6-wm-CrT" id="iD4-ao-jgp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="hPd-kN-hc0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="K9g-sZ-TDy" firstAttribute="leading" secondItem="hPd-kN-hc0" secondAttribute="leading" id="AGl-83-9M1"/>
+                            <constraint firstItem="hPd-kN-hc0" firstAttribute="bottom" secondItem="K9g-sZ-TDy" secondAttribute="bottom" id="Ja5-zU-hK7"/>
+                            <constraint firstItem="hPd-kN-hc0" firstAttribute="trailing" secondItem="K9g-sZ-TDy" secondAttribute="trailing" id="Sun-eR-r9a"/>
+                            <constraint firstItem="K9g-sZ-TDy" firstAttribute="top" secondItem="hPd-kN-hc0" secondAttribute="top" id="r9s-Td-1vG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oRt-1t-e1X"/>
+                    <connections>
+                        <outlet property="feedsTableView" destination="K9g-sZ-TDy" id="eOQ-R8-ig0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZcC-0b-YJ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,6 +140,7 @@
     </scenes>
     <resources>
         <image name="newspaper" catalog="system" width="128" height="108"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
