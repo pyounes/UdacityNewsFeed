@@ -13,11 +13,13 @@ class NewsFeedVC: UIViewController {
     @IBOutlet weak var feedsTableView: UITableView!
     
     // Variables
-    var feeds: Feeds?
+    private var vm = [FeedCellVM]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "News Feed"
+        
+        feedsTableView.register(UINib(nibName: FeedCell.identifier, bundle: nil), forCellReuseIdentifier: FeedCell.identifier)
                 
         getNewsFeeds()
         
@@ -25,14 +27,17 @@ class NewsFeedVC: UIViewController {
     
     // Custom Methods
     private func getNewsFeeds() {
-        NewsFeedServices.shared.getNews(by: .usa) { (result) in
+        NewsFeedServices.shared.getNews(by: .usa) { [weak self] (result) in
             switch result {
-            case .success(let response):
-                self.feeds = response
-                self.reloadTableView()
+            case .success(let articles):
+                self?.vm = articles.compactMap({
+                    FeedCellVM(title: $0.title, subtitle: "", imageURL: URL(string: $0.urlToImage ?? ""))
+                })
+                
+                self?.reloadTableView()
                 break
             case .failure(let error):
-                self.showAlert(message: error.localizedDescription, title: "Error")
+                self?.showAlert(message: error.localizedDescription, title: "Error")
                 break
             }
         }
@@ -51,16 +56,13 @@ class NewsFeedVC: UIViewController {
 // MARK: UITableView Delegate
 extension NewsFeedVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feeds?.articles?.count ?? 0
+        return vm.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell") {
-            if let article = feeds?.articles?[indexPath.row] {
-                cell.textLabel?.text = article.title
-                cell.imageView?.image = UIImage()
-                return cell
-            }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: FeedCell.identifier, for: indexPath) as? FeedCell {
+            cell.configureCell(with: vm[indexPath.row])
+            return cell
         }
         return UITableViewCell()
     }
