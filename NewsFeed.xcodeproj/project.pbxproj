@@ -20,7 +20,6 @@
 		62330603264DA13400705011 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62330602264DA13400705011 /* Article.swift */; };
 		62330609264E65B200705011 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62330608264E65B200705011 /* UIViewController+Extension.swift */; };
 		6233060E264E6F9300705011 /* GFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6233060D264E6F9300705011 /* GFunctions.swift */; };
-		62330611264E70B500705011 /* GConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62330610264E70B500705011 /* GConstants.swift */; };
 		62330614264E742100705011 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62330613264E742100705011 /* UIApplication+Extension.swift */; };
 		6233061F264E984F00705011 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6233061D264E984F00705011 /* FeedCell.swift */; };
 		62330620264E984F00705011 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6233061E264E984F00705011 /* FeedCell.xib */; };
@@ -46,7 +45,6 @@
 		62330602264DA13400705011 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		62330608264E65B200705011 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		6233060D264E6F9300705011 /* GFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFunctions.swift; sourceTree = "<group>"; };
-		62330610264E70B500705011 /* GConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GConstants.swift; sourceTree = "<group>"; };
 		62330613264E742100705011 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		6233061D264E984F00705011 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		6233061E264E984F00705011 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				6233060D264E6F9300705011 /* GFunctions.swift */,
-				62330610264E70B500705011 /* GConstants.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -281,7 +278,6 @@
 			files = (
 				62330609264E65B200705011 /* UIViewController+Extension.swift in Sources */,
 				6233061F264E984F00705011 /* FeedCell.swift in Sources */,
-				62330611264E70B500705011 /* GConstants.swift in Sources */,
 				623305EE264D911200705011 /* StoredNewsVC.swift in Sources */,
 				62330627264E9B3E00705011 /* FeedCellVM.swift in Sources */,
 				62330603264DA13400705011 /* Article.swift in Sources */,

@@ -29,6 +29,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rag-QV-DIq">
+                        <rect key="frame" x="266" y="53" width="22" height="22"/>
+                        <state key="normal" image="cloud" catalog="system"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="dH7-dJ-Nvs" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4Yw-qV-Rl5"/>
@@ -41,14 +45,20 @@
                     <constraint firstAttribute="trailing" secondItem="bF6-W2-avB" secondAttribute="trailing" constant="16" id="RLV-2c-3gR"/>
                     <constraint firstItem="dH7-dJ-Nvs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="WDt-eb-mRp"/>
                     <constraint firstItem="bF6-W2-avB" firstAttribute="centerY" secondItem="dH7-dJ-Nvs" secondAttribute="centerY" id="o4L-YM-aUP"/>
+                    <constraint firstAttribute="bottom" secondItem="rag-QV-DIq" secondAttribute="bottom" constant="5" id="p0i-B3-clP"/>
+                    <constraint firstAttribute="trailing" secondItem="rag-QV-DIq" secondAttribute="trailing" constant="5" id="vPd-8b-hkM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnDownload" destination="rag-QV-DIq" id="JeB-uf-2de"/>
                 <outlet property="imageViewNews" destination="dH7-dJ-Nvs" id="10z-li-QOk"/>
                 <outlet property="lblNewsTitle" destination="bF6-W2-avB" id="xUf-JT-NJr"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="46.540178571428569"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="cloud" catalog="system" width="128" height="87"/>
+    </resources>
 </document>

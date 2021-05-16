@@ -13,7 +13,8 @@ class NewsFeedVC: UIViewController {
     @IBOutlet weak var feedsTableView: UITableView!
     
     // Variables
-    private var vm = [FeedCellVM]()
+    var vm = [FeedCellVM]()
+    var dataController: DataController = (UIApplication.shared.delegate as! AppDelegate).dataController
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +33,9 @@ class NewsFeedVC: UIViewController {
         NewsFeedServices.shared.getTopHeadlinesBy(country: .usa) { [weak self] (result) in
             switch result {
             case .success(let articles):
-                self?.vm = articles.compactMap({
-                    FeedCellVM(title: $0.title, subtitle: "", url: URL(string: $0.url ?? ""), imageURL: URL(string: $0.urlToImage ?? ""))
-                })
+                self?.vm = articles.compactMap {
+                    FeedCellVM(title: $0.title!, url: $0.url!, urlToImage: $0.urlToImage, publishedAt: $0.publishedAt, imageData: nil)
+                }
                 self?.reloadTableView()
                 break
             case .failure(let error):
@@ -51,6 +52,23 @@ class NewsFeedVC: UIViewController {
         }
     }
     
+    // add Feed to CoreData
+    private func addFeed(aFeed: FeedCellVM) {
+        let feed = Feed(context: self.dataController.viewContext)
+        feed.title      = aFeed.title
+        feed.image      = aFeed.imageData
+        feed.url        = aFeed.url
+        feed.urlToImage = aFeed.urlToImage
+     
+        dataController.save()
+    }
+    
+    
+    // Action to Download the Feed
+    @objc func downloadFeed(sender: UIButton) {
+        print("Downloading Feed at index: \(sender.tag)")
+        addFeed(aFeed: vm[sender.tag])
+    }
 
 }
 
@@ -58,12 +76,15 @@ class NewsFeedVC: UIViewController {
 // MARK: UITableView Delegate
 extension NewsFeedVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vm.count
+        return self.vm.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: FeedCell.identifier, for: indexPath) as? FeedCell {
-            cell.configureCell(with: vm[indexPath.row])
+            cell.configureCell(vm: vm[indexPath.row])
+            cell.btnDownload.tag = indexPath.row
+            cell.btnDownload.addTarget(self, action: #selector(downloadFeed(sender:)), for: .touchUpInside)
             return cell
         }
         return UITableViewCell()
@@ -71,7 +92,9 @@ extension NewsFeedVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.pushToArticleDetailVC(url: vm[indexPath.row].url!)
+        if let url = URL(string: vm[indexPath.row].url) {
+            self.pushToArticleDetailVC(url: url)
+        }
     }
     
 }
