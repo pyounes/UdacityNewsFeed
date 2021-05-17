@@ -23,7 +23,9 @@ in Order to use the app you should get your own  Api Key from https://newsapi.or
 * enter api Key in EndPoints.swift for the "apiKey" Variable
 
 
-## Screenshots ans How to Use
+## Screenshots and How to Use
+
+![Screenshot](Feeds.png)
 
 
 ## Authors
