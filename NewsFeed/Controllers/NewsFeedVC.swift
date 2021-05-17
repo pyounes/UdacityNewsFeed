@@ -34,7 +34,7 @@ class NewsFeedVC: UIViewController {
             switch result {
             case .success(let articles):
                 self?.vm = articles.compactMap {
-                    FeedCellVM(title: $0.title!, url: $0.url!, urlToImage: $0.urlToImage, publishedAt: $0.publishedAt, imageData: nil)
+                    FeedCellVM(title: $0.title!, url: $0.url!, urlToImage: $0.urlToImage, publishedAt: $0.publishedAt)
                 }
                 self?.reloadTableView()
                 break
