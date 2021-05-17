@@ -23,14 +23,8 @@ in Order to use the app you should get your own  Api Key from https://newsapi.or
 * enter api Key in EndPoints.swift for the "apiKey" Variable
 
 
-## Help
+## Screenshots ans How to Use
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
-
-## Screenshots
 
 ## Authors
 
