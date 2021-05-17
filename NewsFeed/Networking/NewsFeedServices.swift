@@ -36,6 +36,30 @@ class NewsFeedServices {
     
     /**
      - EndPoint name:
+     - Method               : GET
+     - Parameters     : Query parameter
+     - Comment           :  function that fetchs NewFeed for a specific location
+     - Object                :  Feeds
+     */
+    func getTopHeadlinesBy(query: String, completion: @escaping (Result<[Article], Error>) -> Void) {
+        guard !query.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+        TASKManager.taskHandler(url: EndPoints.getTopHeadlinesByQuery(query).url
+                                ,responseType: Feeds.self
+                                ,failure: Feeds.self) { result in
+
+            switch result {
+            case .success(let apiData):
+                completion(.success(apiData.articles))
+                break
+            case .failure(let error):
+                completion(.failure(error))
+                break
+            }
+        }
+    }
+    
+    /**
+     - EndPoint name:
      - Method               : Download Images
      - Parameters     :
      - Comment           : function to download images from a specific URL

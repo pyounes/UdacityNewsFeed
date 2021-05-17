@@ -14,6 +14,7 @@ class NewsFeedVC: UIViewController {
     
     // Variables
     var vm = [FeedCellVM]()
+    private let searchVC = UISearchController(searchResultsController: nil)
     var dataController: DataController = (UIApplication.shared.delegate as! AppDelegate).dataController
 
     override func viewDidLoad() {
@@ -21,27 +22,47 @@ class NewsFeedVC: UIViewController {
         title = "News Feed"
         
         feedsTableView.register(UINib(nibName: FeedCell.identifier, bundle: nil), forCellReuseIdentifier: FeedCell.identifier)
-                
+        createSearchBar()
         getTopHeadlines()
+        
         
     }
     
     // MARK: - Custom Methods
+    private func createSearchBar() {
+        navigationItem.searchController = searchVC
+        searchVC.searchBar.delegate = self
+    }
+    
+    private func handleResult(result: Result<[Article], Error>) {
+        self.vm.removeAll()
+        switch result {
+        case .success(let articles):
+            self.vm = articles.compactMap {
+                FeedCellVM(title: $0.title!, url: $0.url!, urlToImage: $0.urlToImage, publishedAt: $0.publishedAt)
+            }
+            self.reloadTableView()
+            break
+        case .failure(let error):
+            self.showAlert(message: error.localizedDescription, title: "Error")
+            break
+        }
+    }
+    
     
     /// Fetching TopHeadlines
     private func getTopHeadlines() {
         NewsFeedServices.shared.getTopHeadlinesBy(country: .usa) { [weak self] (result) in
-            switch result {
-            case .success(let articles):
-                self?.vm = articles.compactMap {
-                    FeedCellVM(title: $0.title!, url: $0.url!, urlToImage: $0.urlToImage, publishedAt: $0.publishedAt)
-                }
-                self?.reloadTableView()
-                break
-            case .failure(let error):
-                self?.showAlert(message: error.localizedDescription, title: "Error")
-                break
-            }
+            guard let strong = self else { return }
+            strong.handleResult(result: result)
+        }
+    }
+    
+    /// Fetching TopHeadlines with query
+    private func getTopHeadlinesByQuery(txt: String) {
+        NewsFeedServices.shared.getTopHeadlinesBy(query: txt) { [weak self] (result) in
+            guard let strong = self else { return }
+            strong.handleResult(result: result)
         }
     }
     
@@ -49,6 +70,7 @@ class NewsFeedVC: UIViewController {
     private func reloadTableView() {
         DispatchQueue.main.async {
             self.feedsTableView.reloadData()
+            self.searchVC.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -61,6 +83,8 @@ class NewsFeedVC: UIViewController {
         feed.urlToImage = aFeed.urlToImage
      
         dataController.save()
+        self.showAlert(message: "News Feed is Successfully Saved!", title: "Saved")
+        
     }
     
     
@@ -68,8 +92,18 @@ class NewsFeedVC: UIViewController {
     @objc func downloadFeed(sender: UIButton) {
         print("Downloading Feed at index: \(sender.tag)")
         addFeed(aFeed: vm[sender.tag])
+        vm[sender.tag].isDownloaded = true
+        self.feedsTableView.reloadData()
     }
 
+}
+
+// MARK: - SearchBar Delegate
+extension NewsFeedVC: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, !text.isEmpty else { return }
+        getTopHeadlinesByQuery(txt: text)
+    }
 }
 
 

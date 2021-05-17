@@ -7,9 +7,14 @@
 
 import Foundation
 
-//enum UserDefaults: String {
-//    case 
-//}
-
 let userDefaults = UserDefaults.standard
 
+var deleteOnExit: Bool {
+    get {
+        userDefaults.bool(forKey: "DeleteOnExit")
+    }
+    
+    set {
+        userDefaults.setValue(newValue, forKey: "DeleteOnExit")
+    }
+}

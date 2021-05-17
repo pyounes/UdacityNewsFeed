@@ -31,4 +31,19 @@ class DataController {
             try? viewContext.save()
         }
     }
+    
+    func deleteSavedFeed() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Feed.fetchRequest()
+        
+        // Create Batch Delete Request
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try viewContext.execute(batchDeleteRequest)
+
+        } catch {
+            // Error Handling
+            print(error.localizedDescription)
+        }
+    }
 }

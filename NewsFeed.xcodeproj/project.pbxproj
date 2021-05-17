@@ -28,6 +28,7 @@
 		626EA649265013120025C731 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626EA648265013120025C731 /* DataController.swift */; };
 		626EA64D2650141B0025C731 /* NewsFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 626EA64B2650141B0025C731 /* NewsFeed.xcdatamodeld */; };
 		62A911AA2651BDFC00024DE8 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A911A92651BDFB00024DE8 /* UserSettings.swift */; };
+		62A911AD2652EE8A00024DE8 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A911AC2652EE8A00024DE8 /* SettingsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		626EA648265013120025C731 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		626EA64C2650141B0025C731 /* NewsFeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsFeed.xcdatamodel; sourceTree = "<group>"; };
 		62A911A92651BDFB00024DE8 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		62A911AC2652EE8A00024DE8 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +88,6 @@
 		623305A4264CF67C00705011 /* NewsFeed */ = {
 			isa = PBXGroup;
 			children = (
-				62330616264E805E00705011 /* Thirdparty */,
 				6233060C264E6F7E00705011 /* Global */,
 				62330607264E65AA00705011 /* Extensions */,
 				62330600264D925200705011 /* Resources */,
@@ -107,6 +108,7 @@
 				623305E9264D90B100705011 /* NewsFeedVC.swift */,
 				626EA64426500B450025C731 /* ArticleDetailVC.swift */,
 				623305ED264D911200705011 /* StoredNewsVC.swift */,
+				62A911AC2652EE8A00024DE8 /* SettingsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -182,13 +184,6 @@
 				62A911A92651BDFB00024DE8 /* UserSettings.swift */,
 			);
 			path = Global;
-			sourceTree = "<group>";
-		};
-		62330616264E805E00705011 /* Thirdparty */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Thirdparty;
 			sourceTree = "<group>";
 		};
 		6233061C264E982B00705011 /* Cells */ = {
@@ -296,6 +291,7 @@
 				62330614264E742100705011 /* UIApplication+Extension.swift in Sources */,
 				623305A8264CF67C00705011 /* SceneDelegate.swift in Sources */,
 				62A911AA2651BDFC00024DE8 /* UserSettings.swift in Sources */,
+				62A911AD2652EE8A00024DE8 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

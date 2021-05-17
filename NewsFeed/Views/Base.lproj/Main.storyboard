@@ -20,11 +20,64 @@
                     <connections>
                         <segue destination="8J5-9M-rzZ" kind="relationship" relationship="viewControllers" id="orU-b9-cCX"/>
                         <segue destination="tns-63-AIR" kind="relationship" relationship="viewControllers" id="hGj-Mn-3F1"/>
+                        <segue destination="QIe-pj-8Dc" kind="relationship" relationship="viewControllers" id="Zhf-Yb-zHN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xsv-kR-5Y4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-288" y="264"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="tiy-cu-6lB">
+            <objects>
+                <viewController id="QIe-pj-8Dc" customClass="SettingsVC" customModule="NewsFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="olm-cn-qPh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTh-l1-NjB">
+                                <rect key="frame" x="150" y="64" width="114" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="6HZ-U6-Vq3">
+                                <rect key="frame" x="20" y="147.5" width="374" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete News On Exit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4i-GD-nno">
+                                        <rect key="frame" x="0.0" y="0.0" width="241" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pga-Uw-l8P">
+                                        <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="deleteOnExitSwitched:" destination="QIe-pj-8Dc" eventType="valueChanged" id="msE-6d-9yh"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="viA-mx-nRL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6HZ-U6-Vq3" firstAttribute="top" secondItem="FTh-l1-NjB" secondAttribute="bottom" constant="50" id="2wx-dZ-L6y"/>
+                            <constraint firstItem="viA-mx-nRL" firstAttribute="trailing" secondItem="FTh-l1-NjB" secondAttribute="trailing" constant="150" id="5xW-cd-oZm"/>
+                            <constraint firstItem="FTh-l1-NjB" firstAttribute="top" secondItem="viA-mx-nRL" secondAttribute="top" constant="20" id="5yS-7K-2Mh"/>
+                            <constraint firstItem="6HZ-U6-Vq3" firstAttribute="leading" secondItem="viA-mx-nRL" secondAttribute="leading" constant="20" id="Lf0-wQ-3bn"/>
+                            <constraint firstItem="FTh-l1-NjB" firstAttribute="leading" secondItem="viA-mx-nRL" secondAttribute="leading" constant="150" id="rdd-hO-JCF"/>
+                            <constraint firstItem="viA-mx-nRL" firstAttribute="trailing" secondItem="6HZ-U6-Vq3" secondAttribute="trailing" constant="20" id="sJl-Kh-Zzu"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="trash" catalog="system" id="VxR-bP-BTS"/>
+                    <connections>
+                        <outlet property="deleteOnExitSwitch" destination="Pga-Uw-l8P" id="oka-Mu-sXh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="je2-9V-hLg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-300" y="1221"/>
         </scene>
         <!--Stored-->
         <scene sceneID="TGp-ze-LcX">
@@ -165,12 +218,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QCV-y1-cBr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2329" y="-96"/>
+            <point key="canvasLocation" x="2467" y="264"/>
         </scene>
     </scenes>
     <resources>
         <image name="newspaper" catalog="system" width="128" height="108"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

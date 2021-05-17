@@ -37,7 +37,7 @@ class StoredNewsVC: UIViewController {
         let fetchRequest: NSFetchRequest<Feed> = Feed.fetchRequest()
         if let feeds = try? dataController.viewContext.fetch(fetchRequest) {
             self.vm = feeds.compactMap {
-                FeedCellVM(title: $0.title!, url: $0.url!, urlToImage: $0.urlToImage, publishedAt: $0.publishedAt, imageData: $0.image)
+                FeedCellVM(title: $0.title!, url: $0.url!, urlToImage: $0.urlToImage, publishedAt: $0.publishedAt, imageData: $0.image, isDownloaded: true)
             }
             self.tableView.reloadData()
         }
@@ -55,7 +55,7 @@ extension StoredNewsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: FeedCell.identifier, for: indexPath) as? FeedCell {
-            cell.configureCell(vm: vm[indexPath.row], isDownloaded: true)
+            cell.configureCell(vm: vm[indexPath.row])
             return cell
         }
         return UITableViewCell()

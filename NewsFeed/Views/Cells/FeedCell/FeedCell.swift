@@ -18,14 +18,13 @@ class FeedCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    public func configureCell(vm: FeedCellVM, isDownloaded: Bool = false) {
-        self.btnDownload.isHidden = isDownloaded
+    public func configureCell(vm: FeedCellVM) {
+        self.btnDownload.isHidden = vm.isDownloaded
         lblNewsTitle.text = vm.title
 
         if let data = vm.imageData {
             self.imageViewNews.image = UIImage(data: data)
         } else if let url = URL(string: vm.urlToImage ?? "" ) {
-            self.btnDownload.isHidden = true
             NewsFeedServices.shared.downloadImage(url: url) { [weak self] (data, error) in
                 guard let data = data, error == nil else { return }
                 vm.imageData = data
