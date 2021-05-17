@@ -25,8 +25,20 @@ in Order to use the app you should get your own  Api Key from https://newsapi.or
 
 ## Screenshots and How to Use
 
+* Get latest Feed when you open the App
 ![Screenshot](Feeds.png)
 
+* Search for feed by Keyword
+![Screenshot](Search.png)
+
+* Save Liked feeds by pressing on the cloud Button
+![Screenshot](SaveFeed.png)
+
+* check stored Feed in the Stored Feeds Tab
+![Screenshot](StoredFeeds.png)
+
+* Delete Stored Feeds Upon terminating App Setting
+![Screenshot](Settings.png)
 
 ## Authors
 
