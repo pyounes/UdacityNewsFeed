@@ -22,9 +22,24 @@ class ArticleDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.webView.navigationDelegate = self
         webView.load(URLRequest(url: url!))
+    }
+    
+}
+
+
+extension ArticleDetailVC: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        GFunctions.shared.addLoader()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        GFunctions.shared.removeLoader()
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        GFunctions.shared.removeLoader()
     }
     
 }

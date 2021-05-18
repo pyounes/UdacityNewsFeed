@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XB1-W7-H5d">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -32,26 +32,26 @@
             <objects>
                 <viewController id="QIe-pj-8Dc" customClass="SettingsVC" customModule="NewsFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="olm-cn-qPh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTh-l1-NjB">
-                                <rect key="frame" x="150" y="64" width="114" height="33.5"/>
+                                <rect key="frame" x="110" y="20" width="100" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="6HZ-U6-Vq3">
-                                <rect key="frame" x="20" y="147.5" width="374" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6HZ-U6-Vq3">
+                                <rect key="frame" x="20" y="103.5" width="280" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete News On Exit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4i-GD-nno">
-                                        <rect key="frame" x="0.0" y="0.0" width="241" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="211" height="31"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pga-Uw-l8P">
-                                        <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                        <rect key="frame" x="231" y="0.0" width="51" height="31"/>
                                         <connections>
                                             <action selector="deleteOnExitSwitched:" destination="QIe-pj-8Dc" eventType="valueChanged" id="msE-6d-9yh"/>
                                         </connections>
@@ -63,10 +63,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6HZ-U6-Vq3" firstAttribute="top" secondItem="FTh-l1-NjB" secondAttribute="bottom" constant="50" id="2wx-dZ-L6y"/>
-                            <constraint firstItem="viA-mx-nRL" firstAttribute="trailing" secondItem="FTh-l1-NjB" secondAttribute="trailing" constant="150" id="5xW-cd-oZm"/>
                             <constraint firstItem="FTh-l1-NjB" firstAttribute="top" secondItem="viA-mx-nRL" secondAttribute="top" constant="20" id="5yS-7K-2Mh"/>
                             <constraint firstItem="6HZ-U6-Vq3" firstAttribute="leading" secondItem="viA-mx-nRL" secondAttribute="leading" constant="20" id="Lf0-wQ-3bn"/>
-                            <constraint firstItem="FTh-l1-NjB" firstAttribute="leading" secondItem="viA-mx-nRL" secondAttribute="leading" constant="150" id="rdd-hO-JCF"/>
+                            <constraint firstItem="FTh-l1-NjB" firstAttribute="centerX" secondItem="olm-cn-qPh" secondAttribute="centerX" id="fcW-3v-6ZJ"/>
                             <constraint firstItem="viA-mx-nRL" firstAttribute="trailing" secondItem="6HZ-U6-Vq3" secondAttribute="trailing" constant="20" id="sJl-Kh-Zzu"/>
                         </constraints>
                     </view>
@@ -85,7 +84,7 @@
                 <navigationController title="Stored" id="tns-63-AIR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="square.and.arrow.down" catalog="system" id="DoQ-zG-sQT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="QKJ-zS-g9S">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -101,11 +100,11 @@
             <objects>
                 <viewController title="Stored" id="awL-Jf-oCP" customClass="StoredNewsVC" customModule="NewsFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d2f-jc-8kg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yPA-9n-AuQ">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="96" width="320" height="335"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="awL-Jf-oCP" id="CBm-HK-ee9"/>
@@ -137,7 +136,7 @@
                 <navigationController title="News" id="8J5-9M-rzZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="newspaper" catalog="system" id="ZNb-oV-EQq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="e6i-fc-w6i">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JKK-ne-jnp">
@@ -156,11 +155,11 @@
             <objects>
                 <viewController title="News" id="dP6-wm-CrT" customClass="NewsFeedVC" customModule="NewsFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tlb-17-OsM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K9g-sZ-TDy">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="96" width="320" height="335"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="dP6-wm-CrT" id="wuq-9b-jTr"/>
@@ -191,11 +190,11 @@
             <objects>
                 <viewController storyboardIdentifier="ArticleDetailVC" id="WYn-I0-bSK" customClass="ArticleDetailVC" customModule="NewsFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XXX-Un-J4p">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0k-Lk-bOg">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
