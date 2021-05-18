@@ -31,7 +31,11 @@ class ArticleDetailVC: UIViewController {
 
 extension ArticleDetailVC: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        GFunctions.shared.addLoader()
+        if NetworkMonitor.shared.isConnected {
+            GFunctions.shared.addLoader()
+        } else {
+            self.showAlert(message: "The Internet connection appears to be offline ", title: "Error")
+        }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

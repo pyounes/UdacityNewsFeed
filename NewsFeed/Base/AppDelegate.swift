@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Load Persistent Data Controller
         dataController.load()
         
+        NetworkMonitor.shared.startMonitoring()
+        
         return true
     }
 

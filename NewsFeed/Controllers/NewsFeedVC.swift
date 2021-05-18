@@ -28,6 +28,11 @@ class NewsFeedVC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !NetworkMonitor.shared.isConnected {self.showAlert(message: "The Internet connection appears to be offline ", title: "Error") }
+    }
+    
     // MARK: - Custom Methods
     private func createSearchBar() {
         navigationItem.searchController = searchVC
@@ -35,16 +40,19 @@ class NewsFeedVC: UIViewController {
     }
     
     private func handleResult(result: Result<[Article], Error>) {
-        self.vm.removeAll()
+        
         switch result {
         case .success(let articles):
+            self.vm.removeAll()
             self.vm = articles.compactMap {
                 FeedCellVM(title: $0.title!, url: $0.url!, urlToImage: $0.urlToImage, publishedAt: $0.publishedAt)
             }
             self.reloadTableView()
             break
         case .failure(let error):
-            self.showAlert(message: error.localizedDescription, title: "Error")
+            if !NetworkMonitor.shared.isConnected {self.showAlert(message: "The Internet connection appears to be offline ", title: "Error") } else {
+                self.showAlert(message: error.localizedDescription, title: "Error")
+            }
             break
         }
     }
